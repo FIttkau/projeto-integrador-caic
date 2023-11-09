@@ -8,21 +8,27 @@ class StoreEntityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:entities,name',
+            'cpf_cnpj' => 'unique|string|required|', // Adicione suas regras de validação específicas aqui
+            'rg_ie' => 'required|string', // Adicione suas regras de validação específicas aqui
+            'email' => 'email|unique:entities,email', // Validação de e-mail único
+            'phone' => 'string', // Adicione suas regras de validação específicas aqui
         ];
     }
 }

@@ -14,10 +14,15 @@ class EntityFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
             //
+            'name' => $this->faker->unique()->name(), 
+            'cpf_cnpj' => $this->faker->unique()->numerify('#############'), 
+            'rg_ie' => $this->faker->unique()->numerify('##########'),  
+            'email' => $this->faker->unique()->email(),  
+            'phone' => $this->faker->phoneNumber()
         ];
     }
 }
