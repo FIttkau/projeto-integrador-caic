@@ -15,5 +15,4 @@ class Entity extends Model
     {
         return $this->hasMany(Address::class);
     }
- 
 }
