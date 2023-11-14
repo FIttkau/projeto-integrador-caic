@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('entitys', EntityController::class)
+Route::resource('entities', EntityController::class)
     ->only(['name', 'cpf_cnpj', 'rg_ie', 'email', 'phone'])
     ->middleware(['auth', 'verified']);
 
